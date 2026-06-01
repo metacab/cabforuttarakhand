@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab for Uttarakhand – सस्ती और आरामदायक टैक्सी सेवा</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f4c3a 0%, #1b5e20 50%, #2e7d32 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* पहाड़ों जैसी बैकग्राउंड शेप */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.08" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,186.7C960,213,1056,235,1152,224C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            pointer-events: none;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            border-radius: 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+            padding: 40px 30px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .header-icon {
+            text-align: center;
+            font-size: 48px;
+            color: #1b5e20;
+            margin-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .tagline {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .tagline i {
+            color: #f9a825;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        label i {
+            color: #1b5e20;
+            font-size: 16px;
+        }
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%231b5e20"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        select:focus {
+            border-color: #1b5e20;
+            background: #ffffff;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.1);
+        }
+        .btn {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+        .btn i {
+            font-size: 20px;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #145214, #1b5e20);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 28px;
+            text-align: center;
+            font-size: 13px;
+            color: #444;
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .feature-item i {
+            font-size: 20px;
+            color: #f9a825;
+            background: #fff8e1;
+            padding: 8px;
+            border-radius: 50%;
+        }
+        .note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-icon">
+            <i class="fas fa-taxi"></i>
+        </div>
+        <h1>Cab for Uttarakhand</h1>
+        <p class="tagline">
+            <i class="fas fa-mountain"></i> पहाड़ों में सफर, अब आसान <i class="fas fa-mountain"></i>
+        </p>
+
+        <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> From (कहाँ से)</label>
+            <select id="fromSelect">
+                <option value="">-- जिला / तहसील चुनें --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-map-pin"></i> To (कहाँ तक)</label>
+            <select id="toSelect">
+                <option value="">-- जिला / तहसील चुनें --</option>
+            </select>
+        </div>
+
+        <button class="btn" onclick="submitEnquiry()">
+            <i class="fab fa-whatsapp"></i> WhatsApp पर Enquiry करें
+        </button>
+
+        <div class="features">
+            <div class="feature-item">
+                <i class="fas fa-car"></i>
+                <span>आरामदायक गाड़ियाँ</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rupee-sign"></i>
+                <span>सस्ते दाम</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-clock"></i>
+                <span>24×7 सेवा</span>
+            </div>
+        </div>
+        <p class="note">हम कुछ ही मिनटों में आपसे संपर्क करेंगे।</p>
+    </div>
+
+    <script>
+        // उत्तराखंड के जिले और तहसीलें
+        const uttarakhandDistricts = [
+            {
+                district: "Almora",
+                tehsils: ["Almora", "Bhikiyasain", "Chaukhutia", "Dwarahat", "Jainti", "Ranikhet", "Someshwar", "Syalde", "Lamgara", "Salt"]
+            },
+            {
+                district: "Bageshwar",
+                tehsils: ["Bageshwar", "Kapkot", "Kanda", "Garur"]
+            },
+            {
+                district: "Chamoli",
+                tehsils: ["Chamoli", "Gairsain", "Karnaprayag", "Joshimath", "Tharali", "Pokhari", "Nandaprayag", "Dasholi", "Narayanbagar", "Dewal"]
+            },
+            {
+                district: "Champawat",
+                tehsils: ["Champawat", "Lohaghat", "Pati", "Purnagiri", "Barakot"]
+            },
+            {
+                district: "Dehradun",
+                tehsils: ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala", "Sahaspur", "Kalsi", "Chakrata", "Tyuni"]
+            },
+            {
+                district: "Haridwar",
+                tehsils: ["Haridwar", "Roorkee", "Laksar", "Bhagwanpur", "Narsan"]
+            },
+            {
+                district: "Nainital",
+                tehsils: ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi", "Lalkuan", "Bhimtal", "Kosya Kutauli", "Okhalkanda"]
+            },
+            {
+                district: "Pauri Garhwal",
+                tehsils: ["Pauri", "Kotdwara", "Srinagar", "Lansdowne", "Satpuli", "Dhumakot", "Thalisain", "Bironkhal", "Yamkeshwar", "Pabo", "Dugadda", "Chaubattakhal"]
+            },
+            {
+                district: "Pithoragarh",
+                tehsils: ["Pithoragarh", "Dharchula", "Didihat", "Berinag", "Gangolihat", "Munsiyari", "Kanalichhina", "Devalthal"]
+            },
+            {
+                district: "Rudraprayag",
+                tehsils: ["Rudraprayag", "Ukhimath", "Agastyamuni", "Jakholi", "Basukedar"]
+            },
+            {
+                district: "Tehri Garhwal",
+                tehsils: ["Tehri", "Ghansali", "Devprayag", "Narendra Nagar", "Pratapnagar", "Jakhnidhar", "Bhilangana", "Chamba", "Thauldhar", "Kirtinagar"]
+            },
+            {
+                district: "Udham Singh Nagar",
+                tehsils: ["Rudrapur", "Kashipur", "Khatima", "Sitarganj", "Jaspur", "Gadarpur", "Bajpur", "Kichha", "Nanakmatta"]
+            },
+            {
+                district: "Uttarkashi",
+                tehsils: ["Uttarkashi", "Dunda", "Chinyalisaur", "Bhatwari", "Purola", "Mori", "Barkot"]
+            }
+        ];
+
+        function populateDropdown(selectElement) {
+            uttarakhandDistricts.forEach(dist => {
+                const optgroup = document.createElement("optgroup");
+                optgroup.label = `📌 ${dist.district}`;
+                
+                dist.tehsils.forEach(tehsil => {
+                    const option = document.createElement("option");
+                    option.value = `${tehsil}, ${dist.district}`;
+                    option.textContent = tehsil;
+                    optgroup.appendChild(option);
+                });
+                
+                selectElement.appendChild(optgroup);
+            });
+        }
+
+        window.onload = function() {
+            populateDropdown(document.getElementById("fromSelect"));
+            populateDropdown(document.getElementById("toSelect"));
+        };
+
+        function submitEnquiry() {
+            const from = document.getElementById("fromSelect").value;
+            const to = document.getElementById("toSelect").value;
+
+            if (!from || !to) {
+                alert("कृपया दोनों जगह चुनें - From और To");
+                return;
+            }
+
+            // अपना WhatsApp नंबर नीचे डालें (देश कोड के साथ, बिना +)
+            const phone = "919XXXXXXXXX";  // <-- यहाँ अपना नंबर डालें
+            const message = `🚖 Cab Enquiry%0AFrom: ${from}%0ATo: ${to}`;
+            const whatsappURL = `https://wa.me/${phone}?text=${message}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
